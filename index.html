@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sébastien Nonon -Sport Scientist,Data Scientist,Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #111111;
+    --ink-muted: #444444;
+    --ink-faint: #888888;
+    --surface: #ffffff;
+    --surface-alt: #f7f7f5;
+    --accent: #0f2d52;
+    --border: #e2e2de;
+    --border-strong: #c4c4c0;
+    --font: 'Inter', sans-serif;
+    --serif: 'Playfair Display', serif;
+    --radius: 3px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 72px 2.5rem 56px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5.5vw, 62px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title .name { display: block; }
+  .hero-title .role {
+    display: block;
+    color: var(--ink-muted);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .hero-title .accent-word {
+    color: var(--accent);
+    font-style: normal;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--ink-muted);
+    max-width: 540px;
+    line-height: 1.72;
+    margin-bottom: 2rem;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 2.25rem;
+  }
+  .badge {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-muted);
+    background: var(--surface);
+  }
+  .badge.green, .badge.gold {
+    background: var(--surface-alt);
+    border-color: var(--border);
+    color: var(--ink-muted);
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--surface);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    color: var(--ink);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-strong);
+    transition: border-color 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--ink-muted); }
+  .hero-pitch-line {
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+    margin-top: 1.5rem;
+  }
+
+  /* CIFRE BANNER */
+  .cifre-banner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .cifre-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .cifre-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+  .cifre-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .cifre-value.check { color: #1a5c35; }
+  .cifre-value.pending { color: #7a5a0f; }
+
+  /* SECTION */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .section-number {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; gap: 1rem; }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    transition: border-color 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card:hover { border-color: var(--border-strong); }
+  .project-card::before { display: none; }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.625rem;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .project-org {
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+  .project-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.68;
+    margin-bottom: 1rem;
+  }
+  .project-details { margin-bottom: 1rem; }
+  .detail-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 8px;
+    font-size: 12px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label {
+    font-size: 10px;
+    color: var(--ink-faint);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+  }
+  .detail-value { color: var(--ink-muted); }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    color: var(--ink-muted);
+    background: var(--surface-alt);
+    border-radius: var(--radius);
+  }
+  .tag.data, .tag.rugby, .tag.ml, .tag.neutral {
+    background: var(--surface-alt);
+    color: var(--ink-muted);
+    border-color: var(--border);
+  }
+  .project-impact {
+    margin-top: 0.875rem;
+    padding: 0.625rem 0.875rem;
+    background: var(--surface-alt);
+    border-left: 2px solid var(--accent);
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+  .project-impact strong { color: var(--ink); font-weight: 600; }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 0.875rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .project-link:hover { border-color: var(--accent); }
+  .project-link::after { content: ' →'; }
+
+  /* THESIS */
+  .thesis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .thesis-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.15s;
+  }
+  .thesis-card:hover { border-color: var(--border-strong); }
+  .thesis-index {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .thesis-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+  }
+  .thesis-summary {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    margin-bottom: 0.875rem;
+  }
+  .thesis-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .thesis-value {
+    font-size: 11px;
+    color: var(--ink-muted);
+    padding-top: 0.625rem;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .thesis-axis { margin-bottom: 2.5rem; }
+  .thesis-axis-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.875rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .thesis-axis-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .thesis-axis-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .thesis-grid > .thesis-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    padding-top: 0.875rem;
+    border-top: 1.5px solid var(--border);
+  }
+  .skill-group-title {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .skill-list li {
+    font-size: 12px;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  .contact-block {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .contact-tagline {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.625rem;
+    line-height: 1.25;
+  }
+  .contact-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.72;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 12px;
+    background: var(--surface);
+    transition: border-color 0.15s;
+  }
+  .contact-link:hover { border-color: var(--border-strong); }
+  .contact-link-icon {
+    font-size: 13px;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+  }
+  .contact-link-label {
+    color: var(--ink-faint);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .contact-link-value { font-weight: 500; font-size: 12px; }
+
+  /* FOOTER */
+  footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.25rem 2.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .field-deco { display: none; }
+
+  /* PARCOURS */
+  .parcours-sub-header {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.875rem;
+  }
+  .formation-list { margin-bottom: 2.5rem; }
+  .formation-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 190px 56px;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+    font-size: 13px;
+  }
+  .formation-row:first-child { border-top: 1px solid var(--border); }
+  .formation-diplome { color: var(--ink-faint); font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
+  .formation-intitule { color: var(--ink); font-weight: 500; }
+  .formation-ecole { color: var(--ink-muted); }
+  .formation-annee { color: var(--accent); font-weight: 600; font-size: 12px; text-align: right; }
+  .xp-list { display: flex; flex-direction: column; gap: 0.875rem; margin-bottom: 2.5rem; }
+  .xp-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+  .xp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 3px; }
+  .xp-title { font-family: var(--serif); font-size: 15px; font-weight: 600; }
+  .xp-period { font-size: 10px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .xp-org { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .xp-bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .xp-bullets li { font-size: 12px; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 7px; line-height: 1.65; }
+  .xp-bullets li::before { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--ink-faint); flex-shrink: 0; margin-top: 7px; }
+  .terrain-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; background: var(--surface-alt); }
+  @media (max-width: 640px) {
+    .formation-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .formation-diplome, .formation-annee { display: none; }
+  }
+
+  /* VALUE PROPOSITION */
+  .value-block {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .value-item {
+    padding: 1.5rem;
+    border-right: 1px solid var(--border);
+  }
+  .value-item:last-child { border-right: none; }
+  .value-number {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+  }
+  .value-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .value-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.68;
+  }
+  @media (max-width: 640px) {
+    .value-grid { grid-template-columns: 1fr; }
+    .value-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .value-item:last-child { border-bottom: none; }
+    .value-block { padding-left: 1rem; padding-right: 1rem; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    nav .nav-links { display: none; }
+    .hero, section, .cifre-banner { padding-left: 1rem; padding-right: 1rem; }
+    .thesis-grid { grid-template-columns: 1fr; }
+    .contact-block { grid-template-columns: 1fr; }
+    .cifre-card { grid-template-columns: 1fr; gap: 1rem; }
+    .hero-title { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+<ul class="nav-links">
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#theses">Sujets de thèse</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Me contacter</a>
+</nav>
+
+<main>
+  <div class="hero">
+    <p class="hero-eyebrow">Science des données appliquée au rugby professionnel</p>
+    <h1 class="hero-title">
+      <span class="name">Sébastien Nonon</span>
+    </h1>
+    <p class="hero-sub">
+      Titulaire d'une licence en mathématiques appliquées à l'informatique et de masters en statistiques
+      et data science, je suis passionné de rugby depuis l'enfance et je travaille à mettre mes compétences
+      au service du sport. Je me spécialise dans la récolte, la fusion et la valorisation des données de
+      performance des clubs de rugby professionnel : l'objectif est de produire des outils concrets pour
+      le staff, apportant une aide quotidienne et sur le long terme.
+      Disponible à partir d'août/septembre 2026, en mission terrain, en CIFRE, ou les deux selon vos opportunités et besoins.
+    </p>
+<div class="hero-actions">
+      <a href="#projets" class="btn-primary">Voir mes projets</a>
+      <a href="#theses" class="btn-secondary">Sujets de thèse CIFRE</a>
+    </div>
+    <p class="hero-pitch-line">nonon.sebastien@gmail.com - linkedin.com/in/sebastien-nonon</p>
+  </div>
+
+  <div class="value-block">
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-number">01 - Missions terrain</div>
+        <div class="value-title">Support quotidien du staff</div>
+        <div class="value-desc">
+          Je peux m'intégrer directement dans les routines du staff : préparer les données d'après-match,
+          produire les rapports GPS, mettre à jour les tableaux de bord de suivi de charge.
+          L'idée est que le staff passe son temps à analyser, pas à préparer des fichiers.
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-number">02 - Outils déjà construits</div>
+        <div class="value-title">Des processus qui fonctionnent</div>
+        <div class="value-desc">
+          Les outils développés à Rennes et Vannes ne sont pas des prototypes.
+          Ce sont des processus qui fonctionnent en conditions réelles,
+          adaptables à vos données et à votre façon de travailler.
+          Pas besoin de repartir de zéro.
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-number">03 - Thèse CIFRE</div>
+        <div class="value-title">Le volet recherche</div>
+        <div class="value-desc">
+          La thèse permet de travailler sur des problèmes plus complexes : construire des outils
+          prédictifs, aller plus loin que l'opérationnel. Le sujet se définit avec vous,
+          à partir de vos vrais besoins et de votre projet de jeu.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="projets">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Projets réalisés</h2>
+    </div>
+    <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.72; margin-bottom: 2rem; max-width: 640px;">
+      Ces projets ont été construits en lien direct avec les staffs de Rennes et Vannes, en accord avec
+      leurs besoins et leur projet de jeu.
+    </p>
+
+    <!-- PROJET 1 -->
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Centralisation et automatisation du traitement des données GPS et vidéo</h3>
+          <span class="project-org">Rennes Etudiants Club Rugby</span>
+        </div>
+        <p class="project-desc">
+          Les clubs accumulent des données GPS et vidéo saison après saison, mais ces fichiers restent
+          éparpillés entre plusieurs outils et responsables. Le staff finit par passer plus de temps
+          à préparer ses données qu'à les utiliser. J'ai mis en place un système automatisé qui récupère
+          les fichiers dès qu'ils sont déposés, les traite et les rend consultables dans un tableau de bord
+          en quelques secondes. Après un match ou un entraînement, le préparateur physique et l'analyste
+          accèdent directement à leurs données, sans manipulation de fichiers. Plus de temps pour analyser,
+          préparer la semaine, gérer les charges.
+        </p>
+        <div class="project-tags">
+          <span class="tag data">Python</span>
+          <span class="tag data">SQL</span>
+          <span class="tag data">Streamlit</span>
+          <span class="tag rugby">GPS STATSports</span>
+          <span class="tag rugby">Codage vidéo AIA</span>
+        </div>
+        <a href="https://rugby-data-hub.fly.dev/" target="_blank" class="project-link">Voir le projet en ligne</a>
+        <a href="https://github.com/sebnonon" target="_blank" class="project-link" style="margin-left: 1.25rem;">Voir sur GitHub</a>
+      </div>
+
+      <!-- PROJET 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Analyse de la charge d'entraînement et visualisation saisonnière</h3>
+          <span class="project-org">Rennes Étudiants Club Rugby</span>
+        </div>
+        <p class="project-desc">
+          Suivre l'évolution de la charge de chaque joueur sur une saison à partir des exports GPS bruts
+          est un travail long et répétitif. À partir des données STATSports du REC, j'ai construit un outil
+          qui calcule automatiquement les indicateurs clés (charge aiguë, charge chronique, distance haute
+          intensité, charge de collision) et visualise leur évolution semaine par semaine.
+          Le préparateur physique peut identifier d'un coup d'oeil les joueurs en surcharge ou en manque
+          de charge, ce qui est particulièrement utile en période de forte densité de matchs ou au retour
+          de blessure.
+        </p>
+        <div class="project-tags">
+          <span class="tag data">Python</span>
+          <span class="tag data">Visualisation</span>
+          <span class="tag rugby">GPS STATSports</span>
+          <span class="tag rugby">Charge ACWR</span>
+        </div>
+      </div>
+
+
+      <!-- PROJET VANNES -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Analyse et comparaison de joueurs cibles pour le recrutement</h3>
+          <span class="project-org">RC Vannes</span>
+        </div>
+        <p class="project-desc">
+          RC Vannes disposait de données statistiques sur des joueurs potentiellement recrutables, fournies
+          par AIA Sport, mais elles étaient difficiles à exploiter directement en l'état. J'ai développé
+          un outil qui structure, analyse et met en forme ces données pour permettre au staff de comparer
+          clairement les profils des joueurs cibles. Pour chaque candidat au recrutement, une fiche
+          synthétique avec ses statistiques clés et des graphiques comparatifs poste par poste.
+          Le responsable recrutement et le manager peuvent travailler directement dessus sans toucher
+          aux fichiers bruts.
+        </p>
+        <div class="project-tags">
+          <span class="tag data">Python</span>
+          <span class="tag data">Visualisation</span>
+          <span class="tag rugby">AIA Sport</span>
+          <span class="tag rugby">Aide au recrutement</span>
+        </div>
+      </div>
+
+      <!-- PROJET ÉLAN BÉARNAIS -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Application d'aide à la décision en temps réel</h3>
+          <span class="project-org">Élan Béarnais -Data Challenge IA Pau</span>
+        </div>
+        <p class="project-desc">
+          Dans le cadre d'un Data Challenge, j'ai conçu une application d'aide à la décision pour
+          le staff de l'Élan Béarnais, club de basket professionnel. L'idée était de croiser des données
+          de performance et de contexte match pour produire des indicateurs directement lisibles
+          par le staff pendant et après les rencontres. Première expérience concrète d'application
+          de la data au sport professionnel, en 2020.
+        </p>
+        <div class="project-tags">
+          <span class="tag data">Python</span>
+          <span class="tag rugby">Sport Analytics</span>
+          <span class="tag neutral">Data Challenge</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="theses">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Sujets de thèse CIFRE proposés</h2>
+    </div>
+    <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.72; margin-bottom: 1.5rem; max-width: 640px;">
+      La thèse CIFRE au sein du club peut être une option intéressante, permettant de creuser un sujet
+      précis et innovant, tout en bénéficiant de l'aide et des outils que je peux apporter au staff.
+      Cette option est également intéressante sur le plan financier, car l'aide apportée par l'ANRT
+      permet de réduire les coûts pour le club.
+      Les sujets qui suivent sont des exemples, identifiés lors de l'analyse réalisée lors d'une thèse
+      au Racing 92 en 2025, sur la performance et la santé des joueurs. Ces sujets couvrent des lacunes
+      identifiées dans le suivi, ou prolongent des pistes de réflexion du staff ; ce sont des points de
+      départ potentiels pour construire un sujet avec le club, à partir de ses propres enjeux et projets.
+    </p>
+    <div style="display: inline-flex; gap: 2rem; background: var(--surface-alt); border: 1px solid var(--border); border-left: 2px solid var(--accent); padding: 0.875rem 1.25rem; margin-bottom: 2.5rem; border-radius: var(--radius);">
+      <div>
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 3px;">Dispositif</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--ink);">Thèse CIFRE -financement ANRT</div>
+      </div>
+      <div>
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 3px;">Durée</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--ink);">3 ans minimum</div>
+      </div>
+      <div>
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 3px;">Coût réel club</div>
+        <div style="font-size: 13px; font-weight: 500; color: var(--ink);">À partir de 9 000 € / an</div>
+      </div>
+    </div>
+
+    <!-- AXE 1 -->
+    <div class="thesis-axis">
+      <div class="thesis-axis-header">
+        <span class="thesis-axis-tag">Axe 01</span>
+        <span class="thesis-axis-title">Performance terrain</span>
+      </div>
+      <div class="thesis-grid">
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 01</div>
+          <h3 class="thesis-title">Tracking automatisé des joueurs et du ballon par vision par ordinateur</h3>
+          <p class="thesis-summary">
+            Le jeu "sans ballon" reste non analysé faute de données positionnelles. Pipeline de détection
+            et tracking des 30 joueurs + ballon depuis des vidéos de match, malgré les occlusions propres
+            au rugby (mêlées, rucks) -sans infrastructure GPS supplémentaire.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Vision par ordinateur</span>
+            <span class="tag ml">Tracking multi-objets</span>
+            <span class="tag data">Pose estimation</span>
+            <span class="tag rugby">Données positionnelles</span>
+          </div>
+          <p class="thesis-value">Débouchés : analyse des lignes défensives, espaces créés, momentum spatial -une couche de données aujourd'hui inaccessible aux clubs sans GPS individuel.</p>
+        </div>
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 02</div>
+          <h3 class="thesis-title">Modèle d'Expected Threat (xT) adapté au rugby</h3>
+          <p class="thesis-summary">
+            Pas de métrique de dangerosité positionnelle continue en rugby. Adapter le concept xT du football
+            en intégrant localisation, type de phase, supériorité numérique et profil des joueurs -pour
+            produire une valeur de menace continue sur chaque possession.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Expected Threat</span>
+            <span class="tag data">Modèles spatiaux</span>
+            <span class="tag rugby">Analyse de possession</span>
+            <span class="tag ml">Apprentissage statistique</span>
+          </div>
+          <p class="thesis-value">Débouchés : évaluation objective de la qualité des phases d'attaque et de défense -nouveau langage quantitatif pour les analystes.</p>
+        </div>
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 03</div>
+          <h3 class="thesis-title">Détection automatique de patterns tactiques récurrents</h3>
+          <p class="thesis-summary">
+            L'identification des schémas de jeu est manuelle, subjective et chronophage. Sequence mining
+            ou Transformer sur séquences d'événements pour détecter automatiquement des patterns
+            offensifs/défensifs et les relier aux outcomes (points, pénalités, turnovers).
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Sequence mining</span>
+            <span class="tag ml">Transformers</span>
+            <span class="tag data">NLP événementiel</span>
+            <span class="tag rugby">Analyse tactique</span>
+          </div>
+          <p class="thesis-value">Débouchés : aide à la préparation tactique, automatisation partielle du scouting adversaire.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AXE 2 -->
+    <div class="thesis-axis">
+      <div class="thesis-axis-header">
+        <span class="thesis-axis-tag">Axe 02</span>
+        <span class="thesis-axis-title">Prévention des blessures et médical</span>
+      </div>
+      <div class="thesis-grid">
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 04</div>
+          <h3 class="thesis-title">Modèle de prédiction de blessure généralisable inter-clubs par Federated Learning</h3>
+          <p class="thesis-summary">
+            Les modèles actuels ne généralisent pas d'une saison ou d'un club à l'autre. Federated learning
+            ou transfer learning multi-clubs sans partage de données brutes, avec fine-tuning par club,
+            pour produire un modèle mutualisé à l'échelle d'une fédération.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Federated Learning</span>
+            <span class="tag ml">Transfer Learning</span>
+            <span class="tag data">Multi-clubs</span>
+            <span class="tag neutral">Privacy-preserving ML</span>
+          </div>
+          <p class="thesis-value">Débouchés : modèle plus robuste qu'un modèle mono-club -entraîné sur des données agrégées sans compromis sur la confidentialité.</p>
+        </div>
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 05</div>
+          <h3 class="thesis-title">Architecture multimodale GPS + signaux physiologiques pour la prédiction de blessure</h3>
+          <p class="thesis-summary">
+            La charge interne (HRV, RPE, fréquence cardiaque) est collectée mais rarement modélisée
+            conjointement avec les données GPS. Architecture multimodale fusionnant charge externe,
+            signaux physiologiques et monitoring subjectif pour capter des états de fatigue invisibles
+            aux métriques athlétiques classiques.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Fusion multimodale</span>
+            <span class="tag data">HRV,RPE,GPS</span>
+            <span class="tag ml">Deep learning</span>
+            <span class="tag data">Séries temporelles</span>
+          </div>
+          <p class="thesis-value">Débouchés : détecter une fatigue que le GPS seul ne capte pas -alerte sur des états de risque précoces.</p>
+        </div>
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 06</div>
+          <h3 class="thesis-title">Détection précoce de syndromes de surentraînement par anomalie temporelle</h3>
+          <p class="thesis-summary">
+            Les modèles actuels prédisent une blessure binaire, pas une dérive progressive. Autoencodeurs LSTM
+            ou isolation forest sur séries temporelles multivariées pour modéliser les trajectoires de
+            récupération et détecter des écarts avant cristallisation en blessure.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Autoencodeurs LSTM</span>
+            <span class="tag ml">Isolation Forest</span>
+            <span class="tag data">Détection d'anomalies</span>
+            <span class="tag data">Séries temporelles</span>
+          </div>
+          <p class="thesis-value">Débouchés : passer d'un modèle prédictif binaire à un suivi continu de l'état du joueur -alertes précoces actionnables par le staff.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AXE 3 -->
+    <div class="thesis-axis">
+      <div class="thesis-axis-header">
+        <span class="thesis-axis-tag">Axe 03</span>
+        <span class="thesis-axis-title">Cohésion d'équipe et facteurs humains</span>
+      </div>
+      <div class="thesis-grid">
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 07</div>
+          <h3 class="thesis-title">Modélisation dynamique de la cohésion collective par Temporal Graph Neural Network</h3>
+          <p class="thesis-summary">
+            Les graphes de cohésion existants sont statiques. Temporal GNN intégrant l'évolution
+            hebdomadaire des compositions et des statistiques terrain individuelles pour capturer
+            la dynamique réelle de l'équipe au fil des blessures, absences et rotations.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Temporal GNN</span>
+            <span class="tag ml">Graphes dynamiques</span>
+            <span class="tag rugby">Cohésion collective</span>
+            <span class="tag data">Apprentissage profond</span>
+          </div>
+          <p class="thesis-value">Débouchés : anticiper l'impact des changements d'effectif sur la performance collective -outil d'aide à la composition.</p>
+        </div>
+
+        <div class="thesis-card">
+          <div class="thesis-index">Sujet 08</div>
+          <h3 class="thesis-title">Profiling psycho-physique des joueurs par apprentissage non supervisé</h3>
+          <p class="thesis-summary">
+            Pas de typologies objectives de joueurs combinant physique, mental et historique de blessures.
+            Clustering multivarié (GPS + monitoring subjectif + historique médical) pour identifier
+            des profils de résilience ou de vulnérabilité et adapter la planification individuelle.
+          </p>
+          <div class="thesis-methods">
+            <span class="tag ml">Clustering multivarié</span>
+            <span class="tag data">Données multi-sources</span>
+            <span class="tag rugby">Profils de vulnérabilité</span>
+            <span class="tag ml">Apprentissage non supervisé</span>
+          </div>
+          <p class="thesis-value">Débouchés : personnaliser la gestion de charge par profil -adapter la planification à la typologie individuelle plutôt qu'à la moyenne de l'effectif.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Compétences techniques</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Langages & frameworks</div>
+        <ul class="skill-list">
+          <li>Python (avancé)</li>
+          <li>SQL / PostgreSQL</li>
+          <li>R</li>
+          <li>Pandas, NumPy</li>
+          <li>Scikit-learn</li>
+          <li>PyTorch,TensorFlow</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data engineering</div>
+        <ul class="skill-list">
+          <li>Pipelines ETL</li>
+          <li>Spark / Hadoop</li>
+          <li>Elasticsearch</li>
+          <li>Supabase / PostgreSQL</li>
+          <li>Docker</li>
+          <li>GitHub Actions (CI/CD)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Visualisation & dashboards</div>
+        <ul class="skill-list">
+          <li>Power BI</li>
+          <li>Streamlit</li>
+          <li>Plotly / Matplotlib</li>
+          <li>Seaborn</li>
+          <li>Tableau (bases)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Machine learning</div>
+        <ul class="skill-list">
+          <li>Modèles supervisés</li>
+          <li>Séries temporelles</li>
+          <li>NLP / BERT,LLM</li>
+          <li>Clustering</li>
+          <li>Vision par ordinateur</li>
+          <li>MLflow (bases)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Sport Science</div>
+        <ul class="skill-list">
+          <li>GPS STATSports</li>
+          <li>Codage vidéo AIA</li>
+          <li>Indicateurs de charge (ACWR)</li>
+          <li>Biomécanique / motion capture</li>
+          <li>Données médicales et contextuelles</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Méthodes & outils</div>
+        <ul class="skill-list">
+          <li>Git / GitHub</li>
+          <li>Jupyter Notebooks</li>
+          <li>Rédaction scientifique</li>
+          <li>Vulgarisation terrain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Parcours</h2>
+    </div>
+
+    <p class="parcours-sub-header">Formation</p>
+    <div class="formation-list">
+      <div class="formation-row">
+        <span class="formation-diplome">Mastère Spécialisé</span>
+        <span class="formation-intitule">Expert Big Data Engineer</span>
+        <span class="formation-ecole">UTT -Troyes</span>
+        <span class="formation-annee">2026</span>
+      </div>
+      <div class="formation-row">
+        <span class="formation-diplome">Master Bac+5</span>
+        <span class="formation-intitule">MAS Science des Données</span>
+        <span class="formation-ecole">UBS -Vannes</span>
+        <span class="formation-annee">2025</span>
+      </div>
+      <div class="formation-row">
+        <span class="formation-diplome">Licence Bac+3</span>
+        <span class="formation-intitule">MIASHS -Maths Informatique Appliquées SHS</span>
+        <span class="formation-ecole">Université de Rennes 2</span>
+        <span class="formation-annee">2023</span>
+      </div>
+      <div class="formation-row">
+        <span class="formation-diplome">DUT Bac+2</span>
+        <span class="formation-intitule">Statistique et Informatique Décisionnelle</span>
+        <span class="formation-ecole">UPPA -Pau</span>
+        <span class="formation-annee">2021</span>
+      </div>
+    </div>
+
+    <p class="parcours-sub-header">Expériences professionnelles</p>
+    <div class="xp-list">
+      <div class="xp-card">
+        <div class="xp-header">
+          <span class="xp-title">Data Scientist -Alternant</span>
+          <span class="xp-period">Sept 2025 – Août 2026</span>
+        </div>
+        <div class="xp-org">INFLOW Data,Rennes</div>
+        <ul class="xp-bullets">
+          <li>Développement de pipelines de traitement sur larges volumes de données et intégration de modules IA dans des applications web</li>
+          <li>Développement d'agents IA -prototypage et évaluation de modèles NLP</li>
+          <li>Pilotage du cycle de vie produit complet : de la donnée brute au déploiement</li>
+        </ul>
+      </div>
+      <div class="xp-card">
+        <div class="xp-header">
+          <span class="xp-title">Data Scientist -Alternant</span>
+          <span class="xp-period">Sept 2024 – Août 2025</span>
+        </div>
+        <div class="xp-org">SM Europe Orliman,Rennes</div>
+        <ul class="xp-bullets">
+          <li>Modèles de prévision de vente (séries temporelles, régression, ML) et détection d'anomalies</li>
+          <li>Mise en place d'un processus ETL et automatisation de workflows de traitement de données</li>
+          <li>Sélection de variables et optimisation des performances des modèles prédictifs</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="parcours-sub-header">Profil terrain</p>
+    <div class="terrain-card">
+      <p style="font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 0.375rem;">Joueur de rugby depuis 2007</p>
+      <p style="font-size: 12px; color: var(--ink-muted); margin-bottom: 0.625rem;">FC Lourdes XV,US Adé,RCP Fougères,Pays d'Auray RC,SC Le Rheu</p>
+      <p style="font-size: 12px; color: var(--ink-muted); line-height: 1.68;">Coach d'une équipe universitaire et d'une école de rugby -une compréhension du jeu, des contraintes du staff et de la réalité du terrain que les données seules ne donnent pas.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Me contacter</h2>
+    </div>
+    <div class="contact-block">
+      <div>
+        <h3 class="contact-tagline">Discutons de vos enjeux data</h3>
+        <p class="contact-sub">
+          Vous évoluez dans un club professionnel et la consolidation de données vous prend 
+          plus de temps qu'elle ne devrait ? Je suis à l'écoute pour voir si une collaboration 
+          peut y répondre concrètement -CIFRE ou autre format.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:nonon.sebastien@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">nonon.sebastien@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+33627053080" class="contact-link">
+          <span class="contact-link-icon">☎</span>
+          <div>
+            <div class="contact-link-label">Téléphone</div>
+            <div class="contact-link-value">06 27 05 30 80</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/sebastien-nonon" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/sebastien-nonon</div>
+          </div>
+        </a>
+        <a href="https://github.com/sebnonon" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⌥</span>
+          <div>
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/sebnonon</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Sébastien Nonon -Sport Scientist,Data Scientist,Data Engineer,2026</p>
+  <p>Disponible,Septembre 2026</p>
+</footer>
+
+</body>
+</html>
